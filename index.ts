@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {requestText, runChildProc, writeError, writeText, writeWarning, yeahNah} from "./helpers";
 import {Client} from "pg";
 
@@ -19,7 +21,6 @@ run(process.argv[2])
     })
 
 async function run(command: commands): Promise<number> {
-    console.log(command)
     switch (command) {
         case 'snapshot-create': {
             let snapshotName = process.argv[3]

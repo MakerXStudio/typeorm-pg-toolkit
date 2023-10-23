@@ -2,5 +2,8 @@
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "outDir": "./build",
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node"
   }
 }
