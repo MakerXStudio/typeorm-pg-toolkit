@@ -3,7 +3,7 @@
 import {requestText, runChildProc, writeError, writeText, writeWarning, yeahNah} from "./helpers";
 import {Client} from "pg";
 
-type commands = 'migration-generate' | 'migration-create' | 'snapshot-create' | 'snapshot-restore' | 'snapshot-clean' | unknown
+type commands = 'migration-generate' | 'migration-create' | 'migration-check' | 'snapshot-create' | 'snapshot-restore' | 'snapshot-clean' | unknown
 
 const databaseConfig = {
     host: process.env.TYPEORM_TOOLKIT_DATABASE_HOST!,
@@ -39,6 +39,12 @@ async function run(command: commands): Promise<number> {
             return 0
         case 'migration-generate':
             generateMigration(process.argv[3])
+            return 0
+        case 'migration-create':
+            createMigration(process.argv[3])
+            return 0
+        case 'migration-check':
+            checkMigration()
             return 0
         default:
             throw new Error('Missing command: Expected "create" or "restore"')
@@ -178,5 +184,32 @@ function generateMigration(name: string) {
         '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!,
         '--pretty',
         `${process.env.TYPEORM_TOOLKIT_MIGRATION_ROOT_DIR}/${name}`,
+    ])
+}
+
+function createMigration(name: string) {
+    writeText(`Creating migration with name: ${name}`)
+
+    runChildProc('npm', [
+        'run',
+        'typeorm',
+        '--',
+        `migration:create`,
+        '--pretty',
+        `${process.env.TYPEORM_TOOLKIT_MIGRATION_ROOT_DIR}/${name}`,
+    ])
+}
+
+function checkMigration() {
+    writeText(`Checking if migration is needed`)
+
+    runChildProc('npm', [
+        'run',
+        'typeorm',
+        '--',
+        `migration:generate`,
+        '--dryrun',
+        '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!,
+        '--check some/path',
     ])
 }
