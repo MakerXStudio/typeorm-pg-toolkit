@@ -1,14 +1,12 @@
 {
-  "name": "@makerx/typeorm-toolkit",
+  "name": "@makerx/typeorm-pg-toolkit",
   "version": "1.0.0",
-  "description": "MakerX TypeORM toolkit",
+  "description": "MakerX TypeORM Postgres toolkit",
   "author": "MakerX",
   "scripts": {
     "build": "npm run clean && tsc && npm run build:copy-files",
     "clean": "rimraf build",
     "build:copy-files": "copyfiles \"package.json\" build",
-    "build:clean-install": "cd build && npm clean-install --omit=dev && cd ..",
-    "build:post-build": "rimraf build/package-lock.json",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "bin": {
