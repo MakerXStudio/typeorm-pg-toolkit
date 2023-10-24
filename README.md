@@ -1,4 +1,9 @@
 # TypeORM toolkit
+
+## Install
+```
+npm install @makerx/typeorm-pg-toolkit --save-dev
+```
 A set of useful TypeORM tools to work with Postgres
 
 ## Features
