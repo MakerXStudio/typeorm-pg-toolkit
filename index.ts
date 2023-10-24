@@ -3,7 +3,7 @@
 import {requestText, runChildProc, writeError, writeText, writeWarning, yeahNah} from "./helpers";
 import {Client} from "pg";
 
-type commands = 'migration-generate' | 'migration-create' | 'migration-check' | 'snapshot-create' | 'snapshot-restore' | 'snapshot-clean' | unknown
+type commands = 'migration-generate' | 'migration-create' | 'migration-check' | 'migration-revert' | 'snapshot-create' | 'snapshot-restore' | 'snapshot-clean' | unknown
 
 const databaseConfig = {
     host: process.env.TYPEORM_TOOLKIT_DATABASE_HOST!,
@@ -45,6 +45,9 @@ async function run(command: commands): Promise<number> {
             return 0
         case 'migration-check':
             checkMigration()
+            return 0
+        case 'migration-revert':
+            revertMigration()
             return 0
         default:
             throw new Error('Missing command: Expected "create" or "restore"')
@@ -212,5 +215,17 @@ function checkMigration() {
         '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!,
         '--check',
         'some/path'
+    ])
+}
+
+function revertMigration() {
+    writeText(`Reverting the latest migration`)
+
+    runChildProc('npm', [
+        'run',
+        'typeorm',
+        '--',
+        `migration:revert`,
+        '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!
     ])
 }
