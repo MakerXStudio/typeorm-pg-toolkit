@@ -210,6 +210,7 @@ function checkMigration() {
         `migration:generate`,
         '--dryrun',
         '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!,
-        '--check some/path',
+        '--check',
+        'some/path'
     ])
 }
