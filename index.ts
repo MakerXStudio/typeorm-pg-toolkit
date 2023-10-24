@@ -179,10 +179,7 @@ async function closeOtherConnections(client: Client, dbName: string) {
 function generateMigration(name: string) {
     writeText(`Generating migration with name: ${name}`)
 
-    runChildProc('npm', [
-        'run',
-        'typeorm',
-        '--',
+    runChildProc('typeorm-ts-node-commonjs', [
         `migration:generate`,
         '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!,
         '--pretty',
@@ -193,10 +190,7 @@ function generateMigration(name: string) {
 function createMigration(name: string) {
     writeText(`Creating migration with name: ${name}`)
 
-    runChildProc('npm', [
-        'run',
-        'typeorm',
-        '--',
+    runChildProc('typeorm-ts-node-commonjs', [
         `migration:create`,
         '--pretty',
         `${process.env.TYPEORM_TOOLKIT_MIGRATION_ROOT_DIR}/${name}`,
@@ -206,10 +200,7 @@ function createMigration(name: string) {
 function checkMigration() {
     writeText(`Checking if migration is needed`)
 
-    runChildProc('npm', [
-        'run',
-        'typeorm',
-        '--',
+    runChildProc('typeorm-ts-node-commonjs', [
         `migration:generate`,
         '--dryrun',
         '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!,
@@ -221,10 +212,7 @@ function checkMigration() {
 function revertMigration() {
     writeText(`Reverting the latest migration`)
 
-    runChildProc('npm', [
-        'run',
-        'typeorm',
-        '--',
+    runChildProc('typeorm-ts-node-commonjs', [
         `migration:revert`,
         '--dataSource', process.env.TYPEORM_TOOLKIT_MIGRATION_DATASOURCE_CONFIG!
     ])
