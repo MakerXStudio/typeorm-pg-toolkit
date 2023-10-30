@@ -187,6 +187,13 @@ async function closeOtherConnections(client: Client, dbName: string) {
 }
 
 function generateMigration(name: string) {
+  if (!name) {
+    writeText(
+      `No migration name provided. You can provide one by invoking 'npm run typeorm-pg-toolkit migration-generate -- MIGRATION_NAME'`
+    )
+    name = requestText('Enter a name for the migrations: ')
+  }
+
   writeText(`Generating migration with name: ${name}`)
 
   runChildProc('typeorm-ts-node-commonjs', [
@@ -199,9 +206,14 @@ function generateMigration(name: string) {
 }
 
 function createMigration(name: string) {
+  if (!name) {
+    writeText(`No migration name provided. You can provide one by invoking 'npm run typeorm-pg-toolkit migration-create -- MIGRATION_NAME'`)
+    name = requestText('Enter a name for the migrations: ')
+  }
+
   writeText(`Creating migration with name: ${name}`)
 
-  runChildProc('typeorm-ts-node-commonjs', [`migration:create`, '--pretty', `${process.env.TYPEORM_TOOLKIT_MIGRATION_ROOT_DIR}/${name}`])
+  runChildProc('typeorm-ts-node-commonjs', [`migration:create`, `${process.env.TYPEORM_TOOLKIT_MIGRATION_ROOT_DIR}/${name}`])
 }
 
 function checkMigration() {
