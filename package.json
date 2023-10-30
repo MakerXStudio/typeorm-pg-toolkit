@@ -1,0 +1,45 @@
+{
+  "name": "@makerx/typeorm-pg-toolkit",
+  "version": "1.0.0",
+  "description": "MakerX TypeORM Postgres toolkit",
+  "author": "MakerX",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run build:copy-files",
+    "clean": "rimraf dist",
+    "build:copy-files": "copyfiles \"package.json\" dist",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "audit": "better-npm-audit audit",
+    "lint": "eslint ./src/ --ext .ts",
+    "lint:fix": "eslint ./src/ --ext .ts --fix"
+  },
+  "bin": {
+    "typeorm-pg-toolkit": "./index.js"
+  },
+  "peerDependencies": {
+    "pg": "^8.11.3",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/cross-spawn": "^6.0.4",
+    "@types/node": "^20.8.8",
+    "@types/pg": "^8.10.7",
+    "@types/prompt-sync": "^4.2.2",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "better-npm-audit": "^3.7.3",
+    "colors": "^1.4.0",
+    "copyfiles": "^2.4.1",
+    "cross-spawn": "^7.0.3",
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prompt-sync": "^4.2.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

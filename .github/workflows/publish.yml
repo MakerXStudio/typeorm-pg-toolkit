@@ -1,0 +1,24 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  ci:
+    uses: makerxstudio/shared-config/.github/workflows/node-ci.yml@main
+    with:
+      audit-script: npm run audit
+
+  publish:
+    needs: ci
+    uses: makerxstudio/shared-config/.github/workflows/node-publish-public.yml@main
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
