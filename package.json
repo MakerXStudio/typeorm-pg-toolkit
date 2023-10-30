@@ -1,8 +1,10 @@
 {
   "name": "@makerx/typeorm-pg-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "private": false,
   "description": "MakerX TypeORM Postgres toolkit",
   "author": "MakerX",
+  "license": "MIT",
   "scripts": {
     "build": "npm run clean && tsc && npm run build:copy-files",
     "clean": "rimraf dist",
@@ -14,6 +16,14 @@
   },
   "bin": {
     "typeorm-pg-toolkit": "./index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/MakerXStudio/typeorm-pg-toolkit/issues"
+  },
+  "homepage": "https://github.com/MakerXStudio/typeorm-pg-toolkit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MakerXStudio/typeorm-pg-toolkit.git"
   },
   "peerDependencies": {
     "pg": "^8.11.3",
