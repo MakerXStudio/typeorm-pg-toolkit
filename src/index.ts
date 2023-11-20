@@ -54,8 +54,7 @@ async function run(command: commands): Promise<number> {
       createMigration(process.argv[3])
       return 0
     case 'migration-check':
-      checkMigration()
-      return 0
+      return checkMigration() ?? 0
     case 'migration-revert':
       revertMigration()
       return 0
@@ -219,7 +218,7 @@ function createMigration(name: string) {
 function checkMigration() {
   writeText(`Checking if migration is needed`)
 
-  runChildProc('typeorm-ts-node-commonjs', [
+  return runChildProc('typeorm-ts-node-commonjs', [
     `migration:generate`,
     '--dryrun',
     '--dataSource',

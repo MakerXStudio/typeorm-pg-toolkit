@@ -13,6 +13,7 @@ export function runChildProc(command: string, args: string[]) {
     throw proc.error
   }
   console.info(`child process  exited with code ${proc.status}`)
+  return proc.status
 }
 
 const prompter = prompt()
