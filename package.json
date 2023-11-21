@@ -1,6 +1,6 @@
 {
   "name": "@makerx/typeorm-pg-toolkit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "MakerX TypeORM Postgres toolkit",
   "author": "MakerX",
