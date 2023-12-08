@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./dist",
     "module": "commonjs",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "declaration": true
   }
 }
