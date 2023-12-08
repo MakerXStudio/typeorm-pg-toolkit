@@ -1,1 +1,1 @@
-export * from './jest.database'
+export * from './test-database-manager'
