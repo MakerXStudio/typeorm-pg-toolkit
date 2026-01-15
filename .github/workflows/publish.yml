@@ -5,11 +5,12 @@ on:
     branches:
       - main
     paths-ignore:
-      - '**/*.md'
+      - "**/*.md"
 
 permissions:
   contents: read
   packages: write
+  id-token: write # Required for NPM trusted publishing
 
 jobs:
   ci:
@@ -20,3 +21,5 @@ jobs:
   publish:
     needs: ci
     uses: makerxstudio/shared-config/.github/workflows/node-trusted-publish.yml@main
+    with:
+      access: public
