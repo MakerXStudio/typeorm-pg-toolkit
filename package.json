@@ -25,19 +25,22 @@
     "type": "git",
     "url": "git+https://github.com/MakerXStudio/typeorm-pg-toolkit.git"
   },
+  "engines": {
+    "node": ">=22.22.0"
+  },
   "peerDependencies": {
     "pg": "^8.11.3",
     "typeorm": "^0.3.17"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node20": "^20.1.8",
     "@types/cross-spawn": "^6.0.4",
-    "@types/node": "^20.8.8",
+    "@types/node": "^25.0.8",
     "@types/pg": "^8.10.7",
     "@types/prompt-sync": "^4.2.2",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
-    "better-npm-audit": "^3.7.3",
+    "better-npm-audit": "^3.11.0",
     "colors": "^1.4.0",
     "copyfiles": "^2.4.1",
     "cross-spawn": "^7.0.3",
@@ -47,9 +50,6 @@
     "eslint-plugin-prettier": "^5.0.1",
     "prompt-sync": "^4.2.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "typescript": "^5.9.3"
   }
 }
