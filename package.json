@@ -15,8 +15,10 @@
     "lint:fix": "eslint ./src/ --ext .ts --fix"
   },
   "bin": {
-    "typeorm-pg-toolkit": "./index.js"
+    "typeorm-pg-toolkit": "./script.js"
   },
+  "main": "index.js",
+  "types": "index.d.ts",
   "bugs": {
     "url": "https://github.com/MakerXStudio/typeorm-pg-toolkit/issues"
   },
