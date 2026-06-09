@@ -32,6 +32,11 @@
     "pg": "^8.11.3",
     "typeorm": "^0.3.17"
   },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cross-spawn": "^7.0.3",
+    "prompt-sync": "^4.2.0"
+  },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.8",
     "@types/cross-spawn": "^6.0.4",
@@ -41,14 +46,11 @@
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "better-npm-audit": "^3.11.0",
-    "colors": "^1.4.0",
     "copyfiles": "^2.4.1",
-    "cross-spawn": "^7.0.3",
     "eslint": "8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "prompt-sync": "^4.2.0",
     "rimraf": "^5.0.5",
     "typescript": "^5.9.3"
   }
